@@ -1,0 +1,230 @@
+/* Hoja de estilo unica del panel: la comparten el indice y las fichas.
+   Sin JavaScript, sin dependencias externas, sin fuentes remotas. */
+
+:root {
+  --tinta: #1a1a1a;
+  --tenue: #666;
+  --linea: #d8d4cc;
+  --fondo: #faf9f7;
+  --panel: #fff;
+  --acento: #7a2e2e;
+  --marca: #f0ece4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font: 16px/1.5 Georgia, "Times New Roman", serif;
+}
+
+.hoja {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* Encabezado ---------------------------------------------------------- */
+
+header {
+  border-bottom: 1px solid var(--linea);
+  background: var(--panel);
+  padding: 1.75rem 0 1.25rem;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  margin: 0 0 .3rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: .01em;
+}
+
+.bajada {
+  margin: 0;
+  color: var(--tenue);
+  font-size: .9rem;
+}
+
+.migas {
+  margin: 0 0 .5rem;
+  font-size: .85rem;
+}
+
+.migas a { color: var(--tenue); }
+
+a { color: var(--acento); }
+a:hover { color: var(--tinta); }
+
+h2 {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--tenue);
+  font-weight: normal;
+  margin: 2.5rem 0 .75rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+/* Tabla del indice ---------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  font-size: .9rem;
+}
+
+thead th {
+  text-align: left;
+  font-weight: normal;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--tenue);
+  padding: .5rem .7rem;
+  border-bottom: 1px solid var(--tinta);
+  vertical-align: bottom;
+}
+
+tbody td {
+  padding: .7rem;
+  border-bottom: 1px solid var(--linea);
+  vertical-align: top;
+}
+
+tbody tr:hover { background: var(--fondo); }
+
+.empresa-nombre { font-size: 1rem; }
+.empresa-nombre a { text-decoration: none; }
+.empresa-nombre a:hover { text-decoration: underline; }
+
+.numero {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.fecha {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Procedencia del dato: nunca se muestra un estado sin decir de donde sale */
+
+.fuente {
+  display: block;
+  color: var(--tenue);
+  font-size: .78rem;
+  margin-top: .2rem;
+}
+
+.vacio { color: var(--linea); }
+
+.norma {
+  font-family: ui-monospace, "Courier New", monospace;
+  font-size: .8rem;
+}
+
+/* Ficha de empresa ---------------------------------------------------- */
+
+.datos {
+  margin: 0;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+}
+
+.datos > div {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 1rem;
+  padding: .6rem .9rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+.datos > div:last-child { border-bottom: 0; }
+
+.datos dt {
+  color: var(--tenue);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding-top: .15rem;
+}
+
+.datos dd { margin: 0; font-size: .95rem; }
+
+/* Linea de tiempo ----------------------------------------------------- */
+
+.linea-tiempo {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.4rem;
+  border-left: 1px solid var(--linea);
+}
+
+.linea-tiempo > li {
+  position: relative;
+  padding: 0 0 1.4rem;
+}
+
+.linea-tiempo > li::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: .45rem;
+  width: .45rem;
+  height: .45rem;
+  background: var(--acento);
+  border-radius: 50%;
+}
+
+.linea-tiempo .cabeza {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: baseline;
+}
+
+.linea-tiempo .etapa { font-size: 1rem; }
+
+.linea-tiempo .descripcion {
+  margin: .25rem 0 0;
+  font-size: .9rem;
+}
+
+.linea-tiempo .fuentes {
+  list-style: none;
+  margin: .3rem 0 0;
+  padding: 0;
+  font-size: .82rem;
+  color: var(--tenue);
+}
+
+.linea-tiempo .fuentes li { margin-top: .15rem; }
+
+.nota {
+  color: var(--tenue);
+  font-size: .85rem;
+  margin: .75rem 0 0;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--linea);
+  color: var(--tenue);
+  font-size: .8rem;
+}
+
+@media (max-width: 700px) {
+  .datos > div { grid-template-columns: 1fr; gap: .2rem; }
+  table, thead, tbody, tr, td, th { display: block; }
+  thead { display: none; }
+  tbody tr { border-bottom: 1px solid var(--tinta); padding: .5rem 0; }
+  tbody td { border-bottom: 0; padding: .2rem .7rem; }
+  .numero { text-align: left; }
+}
